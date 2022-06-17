@@ -1,7 +1,10 @@
 dwm - dynamic window manager
 ============================
-dwm is an extremely fast, small, and dynamic window manager for X.
+dwm is an extremely fast, small, and dynamic window manager for X developed by the [suckless.org](https://suckless.org/) community. It manages windows in tiled, monocle and floating layouts. All of the layouts can be applied dynamically, optimising the environment for the application in use and the task performed.
 
+This particular build includes the following patches:
+- [autostart](https://dwm.suckless.org/patches/autostart/)
+- [uselessgap](https://dwm.suckless.org/patches/uselessgap/)
 
 Requirements
 ------------
@@ -24,6 +27,23 @@ Running dwm
 Add the following line to your .xinitrc to start dwm using startx:
 
     exec dwm
+
+In order to relaunch DWM if the binary changes instead of logging out, replace the above line with the execution of the following code:
+
+    csum=""
+    new_csum=$(sha1sum $(which dwm))
+    while true
+    do
+        if [ "$csum" != "$new_csum" ]
+        then
+            csum=$new_csum
+            dwm
+        else
+            exit 0
+        fi
+        new_csum=$(sha1sum $(which dwm))
+        sleep 0.5
+    done
 
 In order to connect dwm to a specific display, make sure that
 the DISPLAY environment variable is set correctly, e.g.:
