@@ -6,7 +6,7 @@
 #define SCRIPTS_PATH "/home/gabriel/.scripts"
 #define SCREENSHOTS_PATH "/home/gabriel/Imágenes/Capturas de pantalla"
 
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int gappx     = 10;       /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -36,6 +36,7 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            0,           -1 },
 	{ "firefox",  NULL,       NULL,       0,		    0,           -1 },
 	{ "spotify_launcher", NULL, NULL,     1 << 8,       0,           -1 },
+	{ "gnome-calendar", NULL, NULL,		  0,	        1,           -1 },
 };
 
 /* layout(s) */
@@ -65,7 +66,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *filexcmd[]  = { "nautilus", NULL };
 static const char *taskmanager[]  = { "st", "btop", NULL };
 static const char *dmenupower[] = {SCRIPTS_PATH"/dmenu-power", NULL};
@@ -74,11 +75,15 @@ static const char *dmenubookmarks[] = {SCRIPTS_PATH"/bmks", "dmenu", NULL};
 static const char *dmenucalculator[] = {SCRIPTS_PATH"/dmenu-calculator", NULL};
 static const char *dmenunotifications[] = {SCRIPTS_PATH"/dmenu-notifications", NULL};
 static const char *dmenuscreenshot[] = {SCRIPTS_PATH"/dmenu-screenshot", SCREENSHOTS_PATH, NULL};
+static const char *dmenumonitors[] = {SCRIPTS_PATH"/dmenu-mons", NULL};
 static const char *nautfacultad[] = {"nautilus", "/media/DATOS/Facultad/Ingeniería Electrónica", NULL};
+static const char *calendar[] = {"gnome-calendar", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,    					XK_c,      spawn,          {.v = calendar} },
 	{ MODKEY|ShiftMask,    			XK_f,      spawn,          {.v = nautfacultad} },
+	{ MODKEY|ShiftMask,    			XK_m,      spawn,          {.v = dmenumonitors} },
 	{ MODKEY|ShiftMask,    			XK_w,      spawn,          {.v = dmenubookmarks} },
 	{ MODKEY,             			XK_w,      spawn,          {.v = dmenuwebsearch} },
 	{ MODKEY|ShiftMask,    			XK_c,      spawn,          {.v = dmenucalculator} },
