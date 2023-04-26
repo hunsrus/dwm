@@ -15,9 +15,9 @@ static const char *fonts[]          = { "SfProDisplay:style=semibold:size="FONT_
 static const char dmenufont[]       = "SfProDisplay:style=semibold:size="FONT_SIZE;
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#46acb8";
+static const char col_gray3[]       = "#eeeeee";	//#bbbbbb
+static const char col_gray4[]       = "#2c2c2c";
+static const char col_cyan[]        = "#63b1bc";	//#46acb8
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -33,9 +33,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            0,           -1 },
+	{ "Gimp",     NULL,       NULL,       1 << 8,            0,           -1 },
 	{ "firefox",  NULL,       NULL,       0,		    0,           -1 },
-	{ "spotify_launcher", NULL, NULL,     1 << 8,       0,           -1 },
+	{ "spotify_launcher", NULL, NULL,     1 << 9,       0,           -1 },
 	{ "gnome-calendar", NULL, NULL,		  0,	        1,           -1 },
 };
 
@@ -80,9 +80,11 @@ static const char *dmenuscreenshot[] = {SCRIPTS_PATH"/dmenu-screenshot", SCREENS
 static const char *dmenumonitors[] = {SCRIPTS_PATH"/dmenu-mons", NULL};
 static const char *nautfacultad[] = {"nautilus", "/media/DATOS/Facultad/Ingeniería Electrónica", NULL};
 static const char *calendar[] = {"gnome-calendar", NULL};
+static const char *applauncher[] = {"rofi", "-show", "drun", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,						XK_a,	   spawn,          {.v = applauncher} },
 	{ MODKEY|ShiftMask,				XK_x,	   spawn,          {.v = killwindow} },
 	{ MODKEY,    					XK_Escape, spawn,          {.v = screenlock} },
 	{ MODKEY,    					XK_c,      spawn,          {.v = calendar} },
