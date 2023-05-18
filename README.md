@@ -7,6 +7,8 @@ dwm is an extremely fast, small, and dynamic window manager for X developed by t
 This particular build includes the following patches:
 - [autostart](https://dwm.suckless.org/patches/autostart/)
 - [uselessgap](https://dwm.suckless.org/patches/uselessgap/)
+- [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/)
+- [dynamicscratchpads](https://dwm.suckless.org/patches/dynamicscratchpads/)
 
 Requirements
 ------------
