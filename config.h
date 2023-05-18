@@ -37,6 +37,7 @@ static const Rule rules[] = {
 	{ "firefox",  NULL,       NULL,       0,		    0,           -1 },
 	{ "spotify_launcher", NULL, NULL,     1 << 9,       0,           -1 },
 	{ "gnome-calendar", NULL, NULL,		  0,	        1,           -1 },
+	{ NULL, 	  NULL, "Figure",		  0,	        1,           -1 },
 };
 
 /* layout(s) */
@@ -78,12 +79,14 @@ static const char *dmenucalculator[] = {SCRIPTS_PATH"/dmenu-calculator", NULL};
 static const char *dmenunotifications[] = {SCRIPTS_PATH"/dmenu-notifications", NULL};
 static const char *dmenuscreenshot[] = {SCRIPTS_PATH"/dmenu-screenshot", SCREENSHOTS_PATH, NULL};
 static const char *dmenumonitors[] = {SCRIPTS_PATH"/dmenu-mons", NULL};
+static const char *dmenugpt[] = {SCRIPTS_PATH"/dmenu-gpt", NULL};
 static const char *nautfacultad[] = {"nautilus", "/media/DATOS/Facultad/Ingeniería Electrónica", NULL};
 static const char *calendar[] = {"gnome-calendar", NULL};
 static const char *applauncher[] = {"rofi", "-show", "drun", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,						XK_g,	   spawn,          {.v = dmenugpt} },
 	{ MODKEY,						XK_a,	   spawn,          {.v = applauncher} },
 	{ MODKEY|ShiftMask,				XK_x,	   spawn,          {.v = killwindow} },
 	{ MODKEY,    					XK_Escape, spawn,          {.v = screenlock} },
