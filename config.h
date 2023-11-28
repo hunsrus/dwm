@@ -37,7 +37,11 @@ static const Rule rules[] = {
 	{ "firefox",  NULL,       NULL,       0,		    0,           -1 },
 	{ "spotify_launcher", NULL, NULL,     1 << 9,       0,           -1 },
 	{ "gnome-calendar", NULL, NULL,		  0,	        1,           -1 },
-	{ NULL, 	  NULL, "Figure",		  0,	        1,           -1 },
+	// figuras de matlab
+	{ NULL, 	  NULL, 	"Figure",	  0,	        1,           -1 },
+	{ NULL, 	  NULL, 	"Plot",		  0,	        1,           -1 },
+	// ventana flotante de descarga de teams
+	{ NULL, 	  NULL, "Notificación de Microsoft Teams",		  0,	        1,           -1 },
 };
 
 /* layout(s) */
@@ -83,11 +87,13 @@ static const char *dmenugpt[] = {SCRIPTS_PATH"/dmenu-gpt", NULL};
 static const char *nautfacultad[] = {"nautilus", "/media/DATOS/Facultad/Ingeniería Electrónica", NULL};
 static const char *calendar[] = {"gnome-calendar", NULL};
 static const char *applauncher[] = {"rofi", "-show", "drun", NULL};
+static const char *appviewer[] = {"rofi", "-show", "window", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,						XK_g,	   spawn,          {.v = dmenugpt} },
 	{ MODKEY,						XK_a,	   spawn,          {.v = applauncher} },
+	{ MODKEY|ShiftMask,				XK_a,	   spawn,          {.v = appviewer} },
 	{ MODKEY|ShiftMask,				XK_x,	   spawn,          {.v = killwindow} },
 	{ MODKEY,    					XK_Escape, spawn,          {.v = screenlock} },
 	{ MODKEY,    					XK_c,      spawn,          {.v = calendar} },
