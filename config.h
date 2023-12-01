@@ -84,6 +84,7 @@ static const char *dmenunotifications[] = {SCRIPTS_PATH"/dmenu-notifications", N
 static const char *dmenuscreenshot[] = {SCRIPTS_PATH"/dmenu-screenshot", SCREENSHOTS_PATH, NULL};
 static const char *dmenumonitors[] = {SCRIPTS_PATH"/dmenu-mons", NULL};
 static const char *dmenugpt[] = {SCRIPTS_PATH"/dmenu-gpt", NULL};
+static const char *dmenutranslate[] = {SCRIPTS_PATH"/dmenu-translate", NULL};
 static const char *nautfacultad[] = {"nautilus", "/media/DATOS/Facultad/Ingeniería Electrónica", NULL};
 static const char *calendar[] = {"gnome-calendar", NULL};
 static const char *applauncher[] = {"rofi", "-show", "drun", NULL};
@@ -92,6 +93,7 @@ static const char *appviewer[] = {"rofi", "-show", "window", NULL};
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,						XK_g,	   spawn,          {.v = dmenugpt} },
+	{ MODKEY|ShiftMask,				XK_t,	   spawn,          {.v = dmenutranslate} },
 	{ MODKEY,						XK_a,	   spawn,          {.v = applauncher} },
 	{ MODKEY|ShiftMask,				XK_a,	   spawn,          {.v = appviewer} },
 	{ MODKEY|ShiftMask,				XK_x,	   spawn,          {.v = killwindow} },
