@@ -82,18 +82,21 @@ static const char *dmenubookmarks[] = {SCRIPTS_PATH"/bmks", "dmenu", NULL};
 static const char *dmenucalculator[] = {SCRIPTS_PATH"/dmenu-calculator", NULL};
 static const char *dmenunotifications[] = {SCRIPTS_PATH"/dmenu-notifications", NULL};
 static const char *dmenuscreenshot[] = {SCRIPTS_PATH"/dmenu-screenshot", SCREENSHOTS_PATH, NULL};
-static const char *dmenumonitors[] = {SCRIPTS_PATH"/dmenu-mons", NULL};
+static const char *dmenumonitors[] = {SCRIPTS_PATH"/dmenu-mons", "-launcher", "rofi", "-theme", "/home/gabriel/.config/rofi/launchers/type-1/style-3.rasi", NULL};
 static const char *dmenugpt[] = {SCRIPTS_PATH"/dmenu-gpt", NULL};
 static const char *dmenutranslate[] = {SCRIPTS_PATH"/dmenu-translate", NULL};
+static const char *dmenubluetooth[] = {SCRIPTS_PATH"/dmenu-bluetooth", NULL};
 static const char *nautfacultad[] = {"nautilus", "/media/DATOS/Facultad/Ingeniería Electrónica", NULL};
 static const char *calendar[] = {"gnome-calendar", NULL};
-static const char *applauncher[] = {"rofi", "-show", "drun", NULL};
+//static const char *applauncher[] = {"rofi", "-show", "drun", NULL};
+static const char *applauncher[] = {"/home/gabriel/.config/rofi/launchers/type-1/launcher.sh", NULL};
 static const char *appviewer[] = {"rofi", "-show", "window", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,						XK_g,	   spawn,          {.v = dmenugpt} },
 	{ MODKEY|ShiftMask,				XK_t,	   spawn,          {.v = dmenutranslate} },
+	{ MODKEY|ShiftMask,				XK_b,	   spawn,          {.v = dmenubluetooth} },
 	{ MODKEY,						XK_a,	   spawn,          {.v = applauncher} },
 	{ MODKEY|ShiftMask,				XK_a,	   spawn,          {.v = appviewer} },
 	{ MODKEY|ShiftMask,				XK_x,	   spawn,          {.v = killwindow} },
