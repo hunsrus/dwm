@@ -5,6 +5,7 @@
 #define FONT_SIZE "10"
 #define SCRIPTS_PATH "/home/gabriel/.scripts"
 #define SCREENSHOTS_PATH "/home/gabriel/Imágenes/Capturas de pantalla"
+#define ROFI_THEME_PATH "/home/gabriel/.config/rofi/launchers/type-1/style-3.rasi" 
 
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int gappx     = 10;       /* gaps between windows */
@@ -76,16 +77,16 @@ static const char *screenlock[]  = { "slock", NULL };
 static const char *killwindow[]  = { "xkill", NULL };
 static const char *filexcmd[]  = { "nautilus", NULL };
 static const char *taskmanager[]  = { "st", "btop", NULL };
-static const char *dmenupower[] = {SCRIPTS_PATH"/dmenu-power", NULL};
+static const char *dmenupower[] = {SCRIPTS_PATH"/dmenu-power", "-launcher", "rofi", "-theme", ROFI_THEME_PATH,NULL};
 static const char *dmenuwebsearch[] = {SCRIPTS_PATH"/dmenu_websearch.sh", NULL};
 static const char *dmenubookmarks[] = {SCRIPTS_PATH"/bmks", "dmenu", NULL};
 static const char *dmenucalculator[] = {SCRIPTS_PATH"/dmenu-calculator", NULL};
 static const char *dmenunotifications[] = {SCRIPTS_PATH"/dmenu-notifications", NULL};
 static const char *dmenuscreenshot[] = {SCRIPTS_PATH"/dmenu-screenshot", SCREENSHOTS_PATH, NULL};
-static const char *dmenumonitors[] = {SCRIPTS_PATH"/dmenu-mons", "-launcher", "rofi", "-theme", "/home/gabriel/.config/rofi/launchers/type-1/style-3.rasi", NULL};
+static const char *dmenumonitors[] = {SCRIPTS_PATH"/dmenu-mons", "-launcher", "rofi", "-theme", ROFI_THEME_PATH, NULL};
 static const char *dmenugpt[] = {SCRIPTS_PATH"/dmenu-gpt", NULL};
 static const char *dmenutranslate[] = {SCRIPTS_PATH"/dmenu-translate", NULL};
-static const char *dmenubluetooth[] = {SCRIPTS_PATH"/dmenu-bluetooth", NULL};
+static const char *dmenubluetooth[] = {SCRIPTS_PATH"/dmenu-bluetooth", "-launcher", "rofi", "-theme", ROFI_THEME_PATH,NULL};
 static const char *nautfacultad[] = {"nautilus", "/media/DATOS/Facultad/Ingeniería Electrónica", NULL};
 static const char *calendar[] = {"gnome-calendar", NULL};
 //static const char *applauncher[] = {"rofi", "-show", "drun", NULL};
