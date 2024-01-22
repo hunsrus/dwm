@@ -9,6 +9,8 @@ This particular build includes the following patches:
 - [uselessgap](https://dwm.suckless.org/patches/uselessgap/)
 - [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/)
 - [dynamicscratchpads](https://dwm.suckless.org/patches/dynamicscratchpads/)
+- [ipc](https://dwm.suckless.org/patches/ipc/)
+- [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)
 
 Requirements
 ------------
