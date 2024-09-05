@@ -41,6 +41,7 @@ static const Rule rules[] = {
 	// figuras de matlab
 	{ NULL, 	  NULL, 	"Figure",	  0,	        1,           -1 },
 	{ NULL, 	  NULL, 	"Plot",		  0,	        1,           -1 },
+	{ NULL, 	  NULL, 	"whisper",	  0,	        1,           -1 },
 	// ventana flotante de descarga de teams
 	{ NULL, 	  NULL, "Notificación de Microsoft Teams",		  0,	        1,           -1 },
 };
@@ -91,7 +92,8 @@ static const char *nautfacultad[] = {"nautilus", "/media/DATOS/Facultad/Ingenier
 static const char *calendar[] = {"gnome-calendar", NULL};
 //static const char *applauncher[] = {"rofi", "-show", "drun", NULL};
 static const char *applauncher[] = {"/home/gabriel/.config/rofi/launchers/type-1/launcher.sh", NULL};
-static const char *appviewer[] = {"rofi", "-show", "window", NULL};
+static const char *appviewer[] = {"rofi", "-show", "window", "-theme", ROFI_THEME_PATH, NULL};
+static const char *togglepolybar[] = {"polybar-msg", "cmd", "toggle", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -116,6 +118,7 @@ static Key keys[] = {
 	{ MODKEY,             			XK_e,	   spawn,          {.v = filexcmd } },
 	{ ControlMask|ShiftMask,		XK_Escape, spawn,          {.v = taskmanager } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY,                       XK_b,      spawn,		   {.v = togglepolybar} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
